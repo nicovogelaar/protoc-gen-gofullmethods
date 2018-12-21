@@ -8,6 +8,8 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
+# github.com/myles-mcdonnell/blondie v3.1.2+incompatible
+github.com/myles-mcdonnell/blondie
 # github.com/pkg/errors v0.8.0
 github.com/pkg/errors
 # golang.org/x/net v0.0.0-20181220203305-927f97764cc3
