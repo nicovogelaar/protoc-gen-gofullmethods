@@ -12,7 +12,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-type generateFile func(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error)
+type fileGenerator func(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error)
 
 type generator struct {
 	*googlegen.Generator
@@ -28,7 +28,7 @@ func newGenerator() *generator {
 	}
 }
 
-func (g *generator) generate(generateFile generateFile) error {
+func (g *generator) generate(generateFile fileGenerator) error {
 	err := readRequest(g.reader, g.Request)
 	if err != nil {
 		return err
