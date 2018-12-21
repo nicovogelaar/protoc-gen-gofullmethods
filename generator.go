@@ -12,9 +12,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-type fileGenerator interface {
-	generateFile(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error)
-}
+type generateFile func(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error)
 
 type generator struct {
 	*googlegen.Generator
@@ -30,7 +28,7 @@ func newGenerator() *generator {
 	}
 }
 
-func (g *generator) generate(fileGenerator fileGenerator) error {
+func (g *generator) generate(generateFile generateFile) error {
 	err := readRequest(g.reader, g.Request)
 	if err != nil {
 		return err
@@ -48,7 +46,7 @@ func (g *generator) generate(fileGenerator fileGenerator) error {
 		if len(protoFile.GetService()) < 1 {
 			continue
 		}
-		file, err := fileGenerator.generateFile(protoFile)
+		file, err := generateFile(protoFile)
 		if err != nil {
 			return err
 		}

@@ -61,7 +61,7 @@ func newFullMethodsGenerator() *fullMethodsGenerator {
 }
 
 func (g *fullMethodsGenerator) generate() error {
-	return g.generator.generate(g)
+	return g.generator.generate(g.generateFile)
 }
 
 func (g *fullMethodsGenerator) generateFile(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error) {
