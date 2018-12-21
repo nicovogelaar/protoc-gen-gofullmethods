@@ -1,3 +1,15 @@
 language: go
+
 go:
-- "1.11"
+- 1.11
+
+install:
+- go get -v -d google.golang.org/grpc
+- go get -v -d -t github.com/golang/protobuf/...
+- go install github.com/golang/protobuf/protoc-gen-go
+- curl -L https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip -o /tmp/protoc.zip
+- unzip /tmp/protoc.zip -d "$HOME"/protoc
+- mkdir -p "$HOME"/src && ln -s "$HOME"/protoc "$HOME"/src/protobuf
+
+env:
+- PATH=$HOME/protoc/bin:$PATH GO111MODULE=on
