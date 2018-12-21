@@ -1,4 +1,4 @@
-# protoc-gen-gofullmethods
+# protoc-gen-gofullmethods [![Build Status](https://travis-ci.org/nicovogelaar/protoc-gen-gofullmethods.svg?branch=master)](https://travis-ci.org/nicovogelaar/protoc-gen-gofullmethods)
 
 This is a protoc go plugin to generate constants for all gRPC server methods.
 
