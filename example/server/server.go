@@ -38,7 +38,7 @@ func serverInterceptor(ctx context.Context, req interface{}, info *grpc.UnarySer
 }
 
 func start() {
-	lis, err := net.Listen("tcp", ":8080")
+	lis, err := net.Listen("tcp", "localhost:8080")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
