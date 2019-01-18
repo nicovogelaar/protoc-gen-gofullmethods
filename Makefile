@@ -1,5 +1,5 @@
 .PHONY: ci
-ci: install gen test
+ci: lint install gen test
 
 .PHONY: install
 install:
@@ -12,3 +12,7 @@ gen:
 .PHONY: test
 test:
 	go test -v -mod=vendor ./...
+
+.PHONY: lint
+lint:
+	golangci-lint run -v
