@@ -5,6 +5,7 @@ import (
 	"go/format"
 	"html/template"
 	"path"
+	"unicode"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
@@ -82,7 +83,7 @@ func (g *fullMethodsGenerator) generateFile(protoFile *descriptor.FileDescriptor
 	for _, svc := range protoFile.Service {
 		methods := make([]string, len(svc.Method))
 		for i, method := range svc.Method {
-			methods[i] = *method.Name
+			methods[i] = ucFirst(*method.Name)
 		}
 		dat.Services = append(dat.Services, service{
 			Name:    googlegen.CamelCase(svc.GetName()),
@@ -115,4 +116,13 @@ func protoFileBaseName(name string) string {
 		name = name[:len(name)-len(ext)]
 	}
 	return name
+}
+
+func ucFirst(s string) string {
+	if s == "" {
+		return s
+	}
+	r := []rune(s)
+	r[0] = unicode.ToUpper(r[0])
+	return string(r)
 }
