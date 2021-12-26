@@ -5,11 +5,11 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	googlegen "github.com/golang/protobuf/protoc-gen-go/generator"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 	"github.com/pkg/errors"
+	"google.golang.org/protobuf/proto"
 )
 
 type fileGenerator func(protoFile *descriptor.FileDescriptorProto) (*plugin.CodeGeneratorResponse_File, error)

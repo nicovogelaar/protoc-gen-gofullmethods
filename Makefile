@@ -7,7 +7,7 @@ install:
 
 .PHONY: gen
 gen:
-	protoc -I example service.proto --go_out=plugins=grpc:example --gofullmethods_out=example
+	protoc --go_out=./example --go_opt=paths=source_relative --go-grpc_out=./example --go-grpc_opt=paths=source_relative --gofullmethods_out=./example -I example service.proto
 
 .PHONY: test
 test:
