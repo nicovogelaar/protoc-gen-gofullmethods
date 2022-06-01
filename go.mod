@@ -4,8 +4,8 @@ go 1.17
 
 require (
 	github.com/golang/protobuf v1.5.2
+	github.com/google/go-cmp v0.5.5
 	github.com/myles-mcdonnell/blondie v3.1.2+incompatible
-	github.com/pkg/errors v0.9.1
 	google.golang.org/grpc v1.17.0
 	google.golang.org/protobuf v1.27.1
 )

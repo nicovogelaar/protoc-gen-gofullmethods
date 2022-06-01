@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
+	"github.com/google/go-cmp/cmp"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/reflect/protodesc"
 	"google.golang.org/protobuf/reflect/protoregistry"
@@ -65,12 +66,19 @@ func TestMain(m *testing.M) {
 }
 
 func TestPlugin(t *testing.T) {
-	t.Run("", func(t *testing.T) {
-		importPath := p.FilesByPath["test.proto"].GoImportPath
-		gen := p.NewGeneratedFile("test.pb.fullmethods.go", importPath)
-		g := &generator{gen, p.FilesByPath["test.proto"]}
-		g.Generate()
-		raw, _ := g.Content()
-		fmt.Print(string(raw))
-	})
+	wantStr := `package test
+
+const (
+	Method_example_TestService__abc = "/example.TestService/abc"
+	Method_example_TestService__Abc = "/example.TestService/Abc"
+)
+`
+	importPath := p.FilesByPath["test.proto"].GoImportPath
+	gen := p.NewGeneratedFile("test.pb.fullmethods.go", importPath)
+	g := &generator{gen, p.FilesByPath["test.proto"]}
+	g.Generate()
+	raw, _ := g.Content()
+	if res := cmp.Diff(string(raw), wantStr); res != "" {
+		t.Errorf("(+want/-got) %s", res)
+	}
 }

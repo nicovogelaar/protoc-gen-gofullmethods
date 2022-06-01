@@ -29,9 +29,9 @@ Int32Value
 BytesValue
 value (RvalueBƒ
 com.google.protobufBWrappersProtoPZ1google.golang.org/protobuf/types/known/wrapperspbø¢GPBªGoogle.Protobuf.WellKnownTypesbproto3
- 
+£
 
-test.prototestgoogle/protobuf/empty.protogoogle/protobuf/wrappers.proto2‡
+test.protoexamplegoogle/protobuf/empty.protogoogle/protobuf/wrappers.proto2‡
 TestService;
 abc.google.protobuf.StringValue.google.protobuf.Empty;
 Abc.google.protobuf.StringValue.google.protobuf.EmptyB=Z;github.com/ncrypthic/protoc-gen-gofullmethods/internal/testbproto3

@@ -22,7 +22,7 @@ func (g *generator) Generate() {
 	g.P("const (")
 	for _, s := range g.Services {
 		for _, m := range s.Methods {
-			g.P("\tMethod_", normalizeFullname(s.Desc.FullName()), "__", m.Desc.Name(), ` = "`, s.Desc.FullName(), "/", m.Desc.Name(), `"`)
+			g.P("\tMethod_", normalizeFullname(s.Desc.FullName()), "__", m.Desc.Name(), ` = "/`, s.Desc.FullName(), "/", m.Desc.Name(), `"`)
 		}
 	}
 	g.P(")")

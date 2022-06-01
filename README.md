@@ -19,25 +19,18 @@ $ go install github.com/nicovogelaar/protoc-gen-gofullmethods
 Include the `--gofullmethods_out=` flag to generate the `.fullmethods.pb.go` file.
 
 ```
-$ protoc -I example service.proto --go_out=plugins=grpc:example --gofullmethods_out=example
+$ protoc -I example service.proto --gofullmethods_out=:example --gofullmethods_opt=paths=source_relative
 ```
 
 ## Example
 
-See here an example of the generated file: [service.fullmethods.pb.go](./example/service.fullmethods.pb.go)
+See here an example of the generated file: [service_methods.pb.go](./example/service_methods.pb.go)
 
 ```go
 package example
 
 const (
-	Greeter_SayHello = "/helloworld.Greeter/SayHello"
-	Greeter_SayBye   = "/helloworld.Greeter/SayBye"
-)
-
-var (
-	FullMethods = []string{
-		Greeter_SayHello,
-		Greeter_SayBye,
-	}
+	Method_helloworld_Greeter__SayHello = "/helloworld.Greeter/SayHello"
+	Method_helloworld_Greeter__SayBye   = "/helloworld.Greeter/SayBye"
 )
 ```
