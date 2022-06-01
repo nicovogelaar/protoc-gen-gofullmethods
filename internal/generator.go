@@ -20,12 +20,20 @@ func normalizeFullname(fn protoreflect.FullName) string {
 func (g *generator) Generate() {
 	g.P("package ", g.GoPackageName)
 	g.P("const (")
+	methods := make([]string, 0)
 	for _, s := range g.Services {
 		for _, m := range s.Methods {
-			g.P("\tMethod_", normalizeFullname(s.Desc.FullName()), "__", m.Desc.Name(), ` = "/`, s.Desc.FullName(), "/", m.Desc.Name(), `"`)
+			methodName := `Method_` + normalizeFullname(s.Desc.FullName()) + "__" + string(m.Desc.Name())
+			g.P("\t", methodName, ` = "/`, s.Desc.FullName(), "/", m.Desc.Name(), `"`)
+			methods = append(methods, methodName)
 		}
 	}
 	g.P(")")
+	g.P("var MethodsFullname []string = []string{")
+	for _, m := range methods {
+		g.P("\t", m, ",")
+	}
+	g.P("}")
 }
 
 func Run(opt protogen.Options) {

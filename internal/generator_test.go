@@ -72,6 +72,11 @@ const (
 	Method_example_TestService__abc = "/example.TestService/abc"
 	Method_example_TestService__Abc = "/example.TestService/Abc"
 )
+
+var MethodsFullname []string = []string{
+	Method_example_TestService__abc,
+	Method_example_TestService__Abc,
+}
 `
 	importPath := p.FilesByPath["test.proto"].GoImportPath
 	gen := p.NewGeneratedFile("test.pb.fullmethods.go", importPath)
