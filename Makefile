@@ -7,11 +7,11 @@ install:
 
 .PHONY: gen
 gen:
-	protoc --go_out=./example --go_opt=paths=source_relative --go-grpc_out=./example --go-grpc_opt=paths=source_relative --gofullmethods_out=./example -I example service.proto
+	protoc --go_out=./example --go_opt=paths=source_relative --go-grpc_out=./example --go-grpc_opt=paths=source_relative --gofullmethods_out=./example --gofullmethods_opt=paths=source_relative -I example service.proto
 
 .PHONY: test
 test:
-	go test -v -mod=vendor ./...
+	go test -v ./...
 
 .PHONY: lint
 lint:

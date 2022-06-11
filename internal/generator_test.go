@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
 	"github.com/google/go-cmp/cmp"
 	"google.golang.org/protobuf/compiler/protogen"
+	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protodesc"
 	"google.golang.org/protobuf/reflect/protoregistry"
 	"google.golang.org/protobuf/types/descriptorpb"
@@ -84,7 +84,11 @@ var (
 	gen := p.NewGeneratedFile("test.pb.fullmethods.go", importPath)
 	g := &generator{gen, p.FilesByPath["test.proto"]}
 	g.Generate()
-	raw, _ := g.Content()
+	raw, err := g.Content()
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+		return
+	}
 	if res := cmp.Diff(string(raw), wantStr); res != "" {
 		t.Errorf("(+want/-got) %s", res)
 	}
