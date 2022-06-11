@@ -1,6 +1,13 @@
 package example
 
 const (
-	Method_helloworld_Greeter__SayHello = "/helloworld.Greeter/SayHello"
-	Method_helloworld_Greeter__SayBye   = "/helloworld.Greeter/SayBye"
+	Greeter_SayHello = "/helloworld.Greeter/SayHello"
+	Greeter_SayBye   = "/helloworld.Greeter/SayBye"
+)
+
+var (
+	FullMethods = []string{
+		Greeter_SayHello,
+		Greeter_SayBye,
+	}
 )

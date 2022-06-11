@@ -23,17 +23,19 @@ func (g *generator) Generate() {
 	methods := make([]string, 0)
 	for _, s := range g.Services {
 		for _, m := range s.Methods {
-			methodName := `Method_` + normalizeFullname(s.Desc.FullName()) + "__" + string(m.Desc.Name())
+			methodName := normalizeFullname(protoreflect.FullName(s.Desc.Name())) + "_" + string(m.Desc.Name())
 			g.P("\t", methodName, ` = "/`, s.Desc.FullName(), "/", m.Desc.Name(), `"`)
 			methods = append(methods, methodName)
 		}
 	}
 	g.P(")")
-	g.P("var MethodsFullname []string = []string{")
+	g.P("var (")
+	g.P("\tFullMethods = []string{")
 	for _, m := range methods {
-		g.P("\t", m, ",")
+		g.P("\t\t", m, ",")
 	}
 	g.P("}")
+	g.P(")")
 }
 
 func Run(opt protogen.Options) {
