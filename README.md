@@ -19,7 +19,7 @@ $ go install github.com/nicovogelaar/protoc-gen-gofullmethods
 Include the `--gofullmethods_out=` flag to generate the `.fullmethods.pb.go` file.
 
 ```
-$ protoc -I example service.proto --gofullmethods_out=:example --gofullmethods_opt=paths=source_relative
+$ protoc --go_out=./example --go_opt=paths=source_relative --go-grpc_out=./example --go-grpc_opt=paths=source_relative --gofullmethods_out=./example --gofullmethods_opt=paths=source_relative -I example service.proto
 ```
 
 ## Example
