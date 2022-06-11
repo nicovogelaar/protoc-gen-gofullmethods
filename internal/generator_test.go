@@ -69,14 +69,16 @@ func TestPlugin(t *testing.T) {
 	wantStr := `package test
 
 const (
-	Method_example_TestService__abc = "/example.TestService/abc"
-	Method_example_TestService__Abc = "/example.TestService/Abc"
+	TestService_abc = "/example.TestService/abc"
+	TestService_Abc = "/example.TestService/Abc"
 )
 
-var MethodsFullname []string = []string{
-	Method_example_TestService__abc,
-	Method_example_TestService__Abc,
-}
+var (
+	FullMethods = []string{
+		TestService_abc,
+		TestService_Abc,
+	}
+)
 `
 	importPath := p.FilesByPath["test.proto"].GoImportPath
 	gen := p.NewGeneratedFile("test.pb.fullmethods.go", importPath)
