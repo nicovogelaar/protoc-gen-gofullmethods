@@ -30,7 +30,14 @@ See here an example of the generated file: [service_methods.pb.go](./example/ser
 package example
 
 const (
-	Method_helloworld_Greeter__SayHello = "/helloworld.Greeter/SayHello"
-	Method_helloworld_Greeter__SayBye   = "/helloworld.Greeter/SayBye"
+	Greeter__SayHello = "/helloworld.Greeter/SayHello"
+	Greeter__SayBye   = "/helloworld.Greeter/SayBye"
+)
+
+var (
+	FullMethods = []string{
+		Greeter_SayHello,
+		Greeter_SayBye,
+	}
 )
 ```
