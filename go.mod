@@ -1,4 +1,4 @@
-module github.com/ncrypthic/protoc-gen-gofullmethods
+module github.com/nicovogelaar/protoc-gen-gofullmethods
 
 go 1.17
 

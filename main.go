@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ncrypthic/protoc-gen-gofullmethods/internal"
+	"github.com/nicovogelaar/protoc-gen-gofullmethods/internal"
 	"google.golang.org/protobuf/compiler/protogen"
 )
 
