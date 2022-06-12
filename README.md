@@ -30,8 +30,8 @@ See here an example of the generated file: [service_methods.pb.go](./example/ser
 package example
 
 const (
-	Greeter__SayHello = "/helloworld.Greeter/SayHello"
-	Greeter__SayBye   = "/helloworld.Greeter/SayBye"
+	Greeter_SayHello = "/helloworld.Greeter/SayHello"
+	Greeter_SayBye   = "/helloworld.Greeter/SayBye"
 )
 
 var (
