@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"runtime/debug"
 	"strings"
 	"testing"
 
@@ -110,4 +111,9 @@ var (
 	if res := cmp.Diff(string(raw), wantStr); res != "" {
 		t.Errorf("(+want/-got) %s", res)
 	}
+}
+
+func TestPluginVersion(t *testing.T) {
+	b, _ := debug.ReadBuildInfo()
+	fmt.Printf("%+v", b)
 }
