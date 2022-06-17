@@ -5,7 +5,7 @@ import "google/protobuf/wrappers.proto";
 
 package example;
 
-option go_package="github.com/ncrypthic/protoc-gen-gofullmethods/internal/test";
+option go_package="github.com/nicovogelaar/protoc-gen-gofullmethods/internal/test";
 
 service TestService {
   rpc abc(google.protobuf.StringValue) returns (google.protobuf.Empty);
