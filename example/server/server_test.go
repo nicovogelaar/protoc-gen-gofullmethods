@@ -38,7 +38,7 @@ func TestMain(m *testing.M) {
 	}()
 	greeterClient = example.NewGreeterClient(greeterConn)
 
-	defer os.Exit(m.Run())
+	os.Exit(m.Run())
 }
 
 func TestGreeterServer_SayHello(t *testing.T) {
