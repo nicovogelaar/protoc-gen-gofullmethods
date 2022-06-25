@@ -1,0 +1,37 @@
+
+¾
+google/protobuf/empty.protogoogle.protobuf"
+EmptyB}
+com.google.protobufB
+EmptyProtoPZ.google.golang.org/protobuf/types/known/emptypbø¢GPBªGoogle.Protobuf.WellKnownTypesbproto3
+†
+google/protobuf/wrappers.protogoogle.protobuf"#
+DoubleValue
+value (Rvalue""
+
+FloatValue
+value (Rvalue""
+
+Int64Value
+value (Rvalue"#
+UInt64Value
+value (Rvalue""
+
+Int32Value
+value (Rvalue"#
+UInt32Value
+value (Rvalue"!
+	BoolValue
+value (Rvalue"#
+StringValue
+value (	Rvalue""
+
+BytesValue
+value (RvalueBƒ
+com.google.protobufBWrappersProtoPZ1google.golang.org/protobuf/types/known/wrapperspbø¢GPBªGoogle.Protobuf.WellKnownTypesbproto3
+¦
+
+test.protoexamplegoogle/protobuf/empty.protogoogle/protobuf/wrappers.proto2‡
+TestService;
+abc.google.protobuf.StringValue.google.protobuf.Empty;
+Abc.google.protobuf.StringValue.google.protobuf.EmptyB@Z>github.com/nicovogelaar/protoc-gen-gofullmethods/internal/testbproto3

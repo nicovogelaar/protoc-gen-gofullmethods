@@ -1,12 +1,11 @@
 package main
 
 import (
-	"log"
+	"github.com/nicovogelaar/protoc-gen-gofullmethods/internal"
+	"google.golang.org/protobuf/compiler/protogen"
 )
 
 func main() {
-	err := newFullMethodsGenerator().generate()
-	if err != nil {
-		log.Println(err)
-	}
+	opt := protogen.Options{}
+	internal.Run(opt)
 }

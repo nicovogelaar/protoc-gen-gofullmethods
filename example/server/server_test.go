@@ -11,6 +11,7 @@ import (
 	"github.com/nicovogelaar/protoc-gen-gofullmethods/example"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 )
 
@@ -26,7 +27,7 @@ func TestMain(m *testing.M) {
 
 	blondie.WaitForDeps([]blondie.DepCheck{blondie.NewTcpCheck("localhost", 8080, 30*time.Second)}, opts)
 
-	greeterConn, err := grpc.Dial(":8080", grpc.WithInsecure(), grpc.WithBlock())
+	greeterConn, err := grpc.Dial(":8080", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("failed to connect to greeter server: %v", err)
 	}

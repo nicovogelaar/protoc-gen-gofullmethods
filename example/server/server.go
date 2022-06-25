@@ -14,6 +14,7 @@ import (
 )
 
 type greeterServer struct {
+	example.UnimplementedGreeterServer
 }
 
 func (server *greeterServer) SayHello(ctx context.Context, request *example.HelloRequest) (*example.HelloReply, error) {
